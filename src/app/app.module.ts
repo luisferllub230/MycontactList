@@ -3,17 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UserCardComponent } from './Components/user-card/user-card.component';
-import { ReadJsonDataService } from './Services/read-json-data.service';
-import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { ReadJsonDataService } from './Services/contact.service';
+import { ContacRegisterFormComponent } from './Components/contac-register-form/contac-register-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserCardComponent,
-    NavBarComponent
+    ContacRegisterFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [ReadJsonDataService],
   bootstrap: [AppComponent]

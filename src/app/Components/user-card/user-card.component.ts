@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReadJsonDataService } from 'src/app/Services/read-json-data.service';
+import { ReadJsonDataService } from 'src/app/Services/contact.service';
 
 @Component({
   selector: 'app-user-card',
