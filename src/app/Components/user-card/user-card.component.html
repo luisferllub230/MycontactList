@@ -13,12 +13,17 @@
                     </ul>
                 </div>
                 <div class="d-flex justify-content-end">
+
                     <input type="hidden" value="">
                     <button type="button" class="btn btn-outline-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="setId(i.id)">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                      
+                    
                     <a class="btn btn-outline-danger m-1" (click)="delete(i.id)"><i class="bi bi-trash"></i></a>
+                    <div *ngIf="i.backup">
+                        <button class="btn btn-outline-success mt-1" (click)="restore(i.id)">Restore data</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

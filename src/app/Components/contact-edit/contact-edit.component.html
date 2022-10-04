@@ -3,13 +3,19 @@
     <div class="modal-dialog">
       <div class="modal-content bg-dark text white">
         <div class="modal-body">
-            <div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cleanModel()"></button>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close" (click)="cleanModel()">
+                  <i class="bi bi-x-square"></i>
+                </button>
             </div>
-            <div>            
+            
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-success me-2" (click)="getInfoByID(contactId)">Edit</button>
+            </div>
+
+            <div *ngIf="validate">            
                 <div>
                     <form [formGroup]="contactForm">
-                        <button class="btn btn-outline-warning" (click)="getInfoByID(contactId)">click</button>
                         <div class="form-group mb-3">
                           <label for="name">Name:</label>
                           <input
@@ -72,7 +78,7 @@
                               (contactForm.get('phone')?.touched || contactForm.get('phone')?.dirty)
                             "
                           >
-                            <p class="text-danger fw-bold">Phone is required, please check your phone</p>
+                            <p class="text-danger fw-bold">Phone is required, please use a valid phone number</p>
                           </div>
                         </div>
                       

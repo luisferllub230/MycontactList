@@ -19,6 +19,7 @@ export class userListDataRepository
         if(!localStorage.getItem('contactList')){
 
             localStorage.setItem('contactList', JSON.stringify(this.dataListJson));
+            window.location.reload();
             return this.dataListJson;
         }
         else{
@@ -49,6 +50,7 @@ export class userListDataRepository
         }
         catch(error){
             alert(error);
+            window.location.reload();
         }
     }
 

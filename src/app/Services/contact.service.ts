@@ -48,4 +48,15 @@ export class ReadJsonDataService {
     this.jsonData.delete(container);
   }
 
+  //restore contact data by id
+  public restoreData(id: number): void 
+  {
+    let container: any = this.getAllData().filter((item: any) => item.id == id);
+    container = container[0].backup[0];
+    let container2 = this.getAllData().filter((item: any) => item.id !== id);
+    container2.push(container);
+    this.jsonData.insertData(container2);
+
+  }
+
 }
