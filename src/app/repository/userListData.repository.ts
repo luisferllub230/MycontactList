@@ -30,10 +30,28 @@ export class userListDataRepository
 
     //insert data into json file
     public async insertData(dataI:Object){
-        let conversor = await JSON.parse(localStorage.getItem('contactList') || '{}');
-        conversor.push(dataI);
-        this.dataList.push(dataI);
-        await localStorage.setItem('contactList', JSON.stringify(conversor));
+        try{
+            let container = dataI
+            this.dataList.push(container);
+            await localStorage.setItem('contactList', JSON.stringify(container));
+            window.location.reload();
+        }
+        catch(error){
+            alert(error);//bug when the local storage is removed
+            window.location.reload();
+        }
+    }
+
+    //update data int local storage
+    public updateData(dataU:Object){
+        try{
+            
+            // container.push(dataU);
+            // localStorage.setItem('contactList', JSON.stringify(container));
+        }
+        catch(error){
+            alert(error);
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ReadJsonDataService } from 'src/app/Services/contact.service';
 
 @Component({
@@ -7,8 +7,13 @@ import { ReadJsonDataService } from 'src/app/Services/contact.service';
 })
 export class UserCardComponent{
 
-  constructor(private jsonData: ReadJsonDataService) { }
+  constructor(private contactServices: ReadJsonDataService) { }
 
-  userList:Array<any>= this.jsonData.getAllData();
+  userList:Array<any>= this.contactServices.getAllData();
 
+  id = 0;
+
+  setId(id:number){
+    this.id = id;
+  }
 }

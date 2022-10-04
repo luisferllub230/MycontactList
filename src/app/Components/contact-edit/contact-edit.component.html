@@ -1,0 +1,94 @@
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text white">
+        <div class="modal-body">
+            <div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cleanModel()"></button>
+            </div>
+            <div>            
+                <div>
+                    <form [formGroup]="contactForm">
+                        <button class="btn btn-outline-warning" (click)="getInfoByID(contactId)">click</button>
+                        <div class="form-group mb-3">
+                          <label for="name">Name:</label>
+                          <input
+                            type="text"
+                            [class.is-invalid]="
+                              contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+                            "
+                            class="form-control"
+                            formControlName="name"
+                            placeholder="Enter name"
+                            required
+                          />
+                          <div
+                            *ngIf="
+                              contactForm.get('name')?.invalid &&
+                              (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)
+                            "
+                          >
+                            <p class="text-danger fw-bold">Name is required, please make sure your name is longer than 3 characters</p>
+                          </div>
+                        </div>
+                      
+                        <div class="form-group mb-3">
+                          <label for="email">Email address:</label>
+                          <input
+                            type="email"
+                            [class.is-invalid]="
+                              contactForm.get('email')?.invalid && contactForm.get('email')?.touched
+                            "
+                            class="form-control"
+                            formControlName="email"
+                            placeholder="Enter email"
+                            required
+                          />
+                          <div
+                            *ngIf="
+                              contactForm.get('email')?.invalid &&
+                              (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)
+                            "
+                          >
+                            <p class="text-danger fw-bold">Email is required, please check your Email</p>
+                          </div>
+                        </div>
+                      
+                        <div class="form-group mb-3">
+                          <label for="phone">Phone:</label>
+                          <input
+                            type="text"
+                            [class.is-invalid]="
+                              contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched
+                            "
+                            class="form-control"
+                            formControlName="phone"
+                            placeholder="Enter phone"
+                            required
+                          />
+                          <div
+                            *ngIf="
+                              contactForm.get('phone')?.invalid &&
+                              (contactForm.get('phone')?.touched || contactForm.get('phone')?.dirty)
+                            "
+                          >
+                            <p class="text-danger fw-bold">Phone is required, please check your phone</p>
+                          </div>
+                        </div>
+                      
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary"
+                          [disabled]="!contactForm.valid"
+                          data-bs-dismiss="modal"
+                          (click)="save()"
+                        >
+                          Submit
+                        </button>
+                      </form>
+                </div>
+            </div>  
+        </div>
+      </div>
+    </div>
+  </div>
