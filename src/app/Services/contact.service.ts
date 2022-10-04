@@ -31,7 +31,7 @@ export class ReadJsonDataService {
   public insertData(data: Object): void {
     let container = this.getAllData();
     container.push(data);
-    this.jsonData.insertData(data);
+    this.jsonData.insertData(container);
   }
   
   //update contact data
@@ -45,8 +45,7 @@ export class ReadJsonDataService {
   //delete contact data by id
   public deleteData(id: number): void {
     let container = this.getAllData().filter((item: any) => item.id !== id);
-    console.log(container);
-    this.jsonData.updateData(container);
+    this.jsonData.delete(container);
   }
 
 }

@@ -1,4 +1,3 @@
-import { timeout } from 'rxjs';
 import userList from '../data/userList.json';
 
 export class userListDataRepository
@@ -32,22 +31,21 @@ export class userListDataRepository
     public async insertData(dataI:Object){
         try{
             let container = dataI
-            this.dataList.push(container);
+            console.log(container);
             await localStorage.setItem('contactList', JSON.stringify(container));
             window.location.reload();
         }
         catch(error){
-            alert(error);//bug when the local storage is removed
+            alert(error);
             window.location.reload();
         }
     }
 
-    //update data int local storage
-    public updateData(dataU:Object){
+    //delete data from json file
+    public delete(dataU:Object){
         try{
-            
-            // container.push(dataU);
-            // localStorage.setItem('contactList', JSON.stringify(container));
+            localStorage.setItem('contactList', JSON.stringify(dataU));
+            window.location.reload();
         }
         catch(error){
             alert(error);

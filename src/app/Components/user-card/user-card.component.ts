@@ -16,4 +16,8 @@ export class UserCardComponent{
   setId(id:number){
     this.id = id;
   }
+
+  delete(id: number): void {
+    this.contactServices.deleteData(id);
+  }
 }
